@@ -3,10 +3,11 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 import {
-  CookieBanner,
   ConsentManagerDialog,
   ConsentManagerProvider,
 } from "@c15t/nextjs";
+
+import { CookieBanner } from "@/components/consent-manager/cookie-banner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
