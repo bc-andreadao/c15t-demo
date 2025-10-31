@@ -2,14 +2,10 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-import { NextIntlClientProvider } from 'next-intl';
+import { NextIntlClientProvider } from "next-intl";
 
-import {
-  ConsentManagerProvider,
-} from "@c15t/nextjs";
+import { ConsentManagerProvider } from "@/src/lib/consent-manager/provider";
 
-import { CookieBanner } from "@/components/consent-manager/cookie-banner";
-import { ConsentManagerDialog} from "@/components/consent-manager/consent-manager-dialog";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,17 +33,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <NextIntlClientProvider>
-        <ConsentManagerProvider
-          options={{
-            mode: "offline",
-            consentCategories: ["necessary", "marketing", "measurement", "functionality"],
-            ignoreGeoLocation: true,
-          }}
-        >
-          <CookieBanner />
-          <ConsentManagerDialog />
-          {children}
-        </ConsentManagerProvider>
+          <ConsentManagerProvider>
+            {children}
+          </ConsentManagerProvider>
         </NextIntlClientProvider>
       </body>
     </html>
