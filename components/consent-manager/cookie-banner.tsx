@@ -1,24 +1,27 @@
 'use client';
 
 import { CookieBanner as C15TCookieBanner, CookieBannerProps } from '@c15t/nextjs';
+import { useTranslations } from 'next-intl';
 import { PropsWithChildren } from 'react';
 
 import { Button } from '@/vibes/soul/primitives/button';
 
 function CookieBannerTitle() {
+  const t = useTranslations('Components.ConsentManager.CookieBanner');
 
   return (
     <C15TCookieBanner.Title asChild>
-      <div className="font-heading !text-xl">We value your privacy</div>
+      <div className="font-heading !text-xl">{t('title')}</div>
     </C15TCookieBanner.Title>
   );
 }
 
 function CookieBannerDescription() {
+  const t = useTranslations('Components.ConsentManager.CookieBanner');
 
   return (
     <C15TCookieBanner.Description asChild>
-      <div className="font-body">This site uses cookies to improve your browsing experience, analyze site traffic, and show personalized content.</div>
+      <div className="font-body">{t('description')}</div>
     </C15TCookieBanner.Description>
   );
 }
@@ -32,31 +35,36 @@ function CookieBannerFooter({ children }: PropsWithChildren) {
 }
 
 function CookieBannerRejectButton() {
+  const t = useTranslations('Components.ConsentManager.Common');
+
   return (
     <C15TCookieBanner.RejectButton asChild noStyle themeKey="banner.footer.reject-button">
       <Button size="small" variant="tertiary">
-        Reject All
+        {t('rejectAll')}
       </Button>
     </C15TCookieBanner.RejectButton>
   );
 }
 
 function CookieBannerAcceptButton() {
+  const t = useTranslations('Components.ConsentManager.Common');
+
   return (
     <C15TCookieBanner.AcceptButton asChild noStyle themeKey="banner.footer.accept-button">
       <Button size="small" variant="primary">
-        Accept All
+        {t('acceptAll')}
       </Button>
     </C15TCookieBanner.AcceptButton>
   );
 }
 
 function CookieBannerCustomizeButton() {
+  const t = useTranslations('Components.ConsentManager.Common');
 
   return (
     <C15TCookieBanner.CustomizeButton asChild noStyle themeKey="banner.footer.customize-button">
       <Button size="small" variant="secondary">
-        Customize
+        {t('customize')}
       </Button>
     </C15TCookieBanner.CustomizeButton>
   );
