@@ -35,8 +35,7 @@ export default function RootLayout({
       >
         <ConsentManagerProvider
           options={{
-            mode: "c15t",
-            backendURL: "/api/c15t",
+            mode: "offline",
             consentCategories: ["necessary", "marketing", "measurement", "functionality", "experience"],
             ignoreGeoLocation: true,
           }}
