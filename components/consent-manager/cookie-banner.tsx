@@ -11,7 +11,7 @@ function CookieBannerTitle() {
 
   return (
     <C15TCookieBanner.Title asChild>
-      <div className="font-heading !text-xl">{t('title')}</div>
+      <div className="!text-xl">{t('title')}</div>
     </C15TCookieBanner.Title>
   );
 }
@@ -21,7 +21,7 @@ function CookieBannerDescription() {
 
   return (
     <C15TCookieBanner.Description asChild>
-      <div className="font-body">{t('description')}</div>
+      <div>{t('description')}</div>
     </C15TCookieBanner.Description>
   );
 }

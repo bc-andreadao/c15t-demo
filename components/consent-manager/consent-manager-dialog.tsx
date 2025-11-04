@@ -18,7 +18,7 @@ function ConsentManagerDialogHeaderTitle() {
 
   return (
     <C15TConsentManagerDialog.HeaderTitle asChild>
-      <div className="font-heading !text-2xl !tracking-normal">{t('title')}</div>
+      <div className="!text-2xl !tracking-normal">{t('title')}</div>
     </C15TConsentManagerDialog.HeaderTitle>
   );
 }
@@ -28,7 +28,7 @@ function ConsentManagerDialogHeaderDescription() {
 
   return (
     <C15TConsentManagerDialog.HeaderDescription asChild>
-      <div className="font-body">{t('description')}</div>
+      <div>{t('description')}</div>
     </C15TConsentManagerDialog.HeaderDescription>
   );
 }
