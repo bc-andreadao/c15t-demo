@@ -5,11 +5,23 @@ import { ConsentManagerProvider as C15TConsentManagerProvider } from "@c15t/next
 import { CookieBanner } from "@/components/consent-manager/cookie-banner";
 import { ConsentManagerDialog } from "@/components/consent-manager/consent-manager-dialog";
 
-import { type PropsWithChildren } from "react";
+import { ClientSideOptionsProvider } from "@c15t/nextjs/client";
+import type { ComponentProps, PropsWithChildren } from "react";
 
 import { setConsent, showConsentBanner, verifyConsent } from "./handlers";
 
-export function ConsentManagerProvider({ children }: PropsWithChildren) {
+export type C15tScripts = NonNullable<
+  ComponentProps<typeof ClientSideOptionsProvider>["scripts"]
+>;
+
+interface ConsentManagerProviderProps extends PropsWithChildren {
+  scripts: C15tScripts;
+}
+
+export function ConsentManagerProvider({
+  children,
+  scripts,
+}: ConsentManagerProviderProps) {
   return (
     <C15TConsentManagerProvider
       options={{
@@ -31,7 +43,9 @@ export function ConsentManagerProvider({ children }: PropsWithChildren) {
     >
       <CookieBanner />
       <ConsentManagerDialog />
-      {children}
+      <ClientSideOptionsProvider scripts={scripts}>
+        {children}
+      </ClientSideOptionsProvider>
     </C15TConsentManagerProvider>
   );
 }

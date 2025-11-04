@@ -6,6 +6,10 @@ import { NextIntlClientProvider } from "next-intl";
 
 import { ConsentManagerProvider } from "@/src/lib/consent-manager/provider";
 
+import { scriptsTransformer } from '@/src/data-transformers/scripts-transformer';
+
+import { rootData } from "@/src/script-data";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,13 +31,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const scripts = scriptsTransformer(rootData.data.site.content.scripts);
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <NextIntlClientProvider>
-          <ConsentManagerProvider>
+          <ConsentManagerProvider scripts={scripts}>
             {children}
           </ConsentManagerProvider>
         </NextIntlClientProvider>
