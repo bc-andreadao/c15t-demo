@@ -36,7 +36,7 @@ export default function RootLayout({
         <ConsentManagerProvider
           options={{
             mode: "offline",
-            consentCategories: ["necessary", "marketing", "measurement", "functionality", "experience"],
+            consentCategories: ["necessary", "marketing", "measurement", "functionality"],
             ignoreGeoLocation: true,
           }}
         >
